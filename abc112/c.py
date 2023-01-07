@@ -5,21 +5,20 @@ for _ in range(N):
     x, y, h = map(int, input().split())
     coordinates.append([x, y, h])
 
-sample = coordinates[0]
+xx, yy, hh = -1, -1, -1
+for c in coordinates:
+    if c[2] != 0:
+        xx, yy, hh = c[0], c[1], c[2]
+        break
 
-bucket = {}
 for X in range(101):
     for Y in range(101):
-        sample_x, sample_y, sample_h = coordinates[0][0], coordinates[0][1], coordinates[0][2]
-        H = sample_h + abs(X - sample_x) + abs(Y - sample_y)
+        H = hh + abs(X - xx) + abs(Y - yy)
+        ok = True
         for c in coordinates:
             x, y, h = c[0], c[1], c[2]
-            if h == max([H - abs(X - x) - abs(Y - y), 0]):
-                key = f"{X}_{Y}_{H}"
-                if key not in bucket:
-                    bucket[key] = 1
-                else:
-                    bucket[key] += 1
-
-sorted_bucket = sorted(bucket.items(), key=lambda x: x[1], reverse=True)
-print(' '.join(sorted_bucket[0][0].split('_')))
+            if h != max([H - abs(x - X) - abs(y - Y), 0]):
+                ok = False
+        if ok:
+            print(X, Y, H)
+            exit(0)
