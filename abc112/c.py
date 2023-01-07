@@ -2,7 +2,10 @@ N = int(input())
 coordinates = []
 
 for _ in range(N):
-    coordinates.append(list(map(int, input().split())))
+    x, y, h = map(int, input().split())
+    coordinates.append([x, y, h])
+
+sample = coordinates[0]
 
 bucket = {}
 for X in range(101):
@@ -18,5 +21,5 @@ for X in range(101):
                 else:
                     bucket[key] += 1
 
-sorted_bucket = sorted(bucket.items(), key=lambda i: i[1], reverse=True)
+sorted_bucket = sorted(bucket.items(), key=lambda x: x[1], reverse=True)
 print(' '.join(sorted_bucket[0][0].split('_')))
