@@ -1,7 +1,5 @@
 N, C, K = map(int, input().split())
-T = []
-for _ in range(N):
-    T.append(int(input()))
+T = [int(input()) for _ in range(N)]
 
 bus_list = []
 bus = []
