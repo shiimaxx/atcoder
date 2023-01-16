@@ -9,12 +9,11 @@ for ai in a:
         cnt = prev + ai + 1
         prev = prev + ai - cnt
         total_cnt += abs(cnt)
-        continue
     elif prev < 0 and prev + ai <= 0:
         cnt = abs(prev + ai) + 1
         prev = prev + ai + cnt
         total_cnt += abs(cnt)
-        continue
-    prev += ai
+    else:
+        prev += ai
 
 print(total_cnt)
