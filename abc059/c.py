@@ -7,7 +7,7 @@ if first > 0:
     prev = first
 else:
     prev = 1
-    total_cnt1 += first + 1
+    total_cnt1 += abs(first) + 1
 
 for ai in a:
     # print(f"prev={prev}, ai={ai}, prev+ai={prev + ai}, total_cnt={total_cnt}")
