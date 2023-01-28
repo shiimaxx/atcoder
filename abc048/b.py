@@ -1,5 +1,2 @@
-from decimal import Decimal
-a, b, x = map(Decimal, input().split())
-cnt = int((b - a) / x)
-cnt = cnt + 1 if a % x == 0 else cnt
-print(cnt)
+a, b, x = map(int, input().split())
+print((b // x) - ((a-1) // x))
