@@ -3,20 +3,19 @@ A = []
 A.append(list(map(int, input().split())))
 A.append(list(map(int, input().split())))
 
-Aij = [[], []]
-for i in range(2):
-    c = 0
-    for j, candy in enumerate(reversed(A[i])):
-        c += candy
-        Aij[i].insert(0, c)
-
-i, j = 0, 0
-s = A[i][j]
+max_cnt = 0
+j = 0
 while j < N:
-    if j == N-1 or Aij[i][j+1] < Aij[i+1][j]:
-        s += sum(A[i+1][j:])
-        break
-    s += A[i][j+1]
+    candies = []
+    i = 0
+    for n in range(N):
+        if n == j:
+            candies.append(A[i][n])
+            i += 1
+        candies.append(A[i][n])
+    cnt = sum(candies)
+    if cnt > max_cnt:
+        max_cnt = cnt
     j += 1
 
-print(s)
+print(max_cnt)
