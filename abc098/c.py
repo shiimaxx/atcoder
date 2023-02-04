@@ -11,7 +11,8 @@ E = []
 cnt_e = 0
 for s in reversed(S):
     cnt_e = cnt_e + 1 if s == 'E' else cnt_e
-    E.insert(0, cnt_e)
+    E.append(cnt_e)
+E.reverse()
 
 cnt_min = 3 * 10**5
 for i in range(N):
