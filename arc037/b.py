@@ -5,15 +5,18 @@ visited = []
 for _ in range(M):
     u, v = map(int, input().split())
     vertexes[u].append(v)
+    vertexes[v].append(u)
+
+# print(f"vertexes={vertexes}")
 
 
 def dfs(v, p):
-    # print(v, p)
+    # print(f"v={v}, p={p}")
     if v in visited:
         return False
 
     visited.append(v)
-    result = [dfs(y, v) for y in vertexes[v]]
+    result = [dfs(nv, v) for nv in vertexes[v] if not nv == p]
     return False not in result
 
 
